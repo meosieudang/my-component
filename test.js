@@ -1,1 +1,1 @@
-const test = (a, b) => a + b;
+export const test = (a, b) => a + b;

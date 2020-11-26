@@ -1,11 +1,14 @@
 {
   "name": "react-native-test-hihi",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react-native-fast-image": "^8.3.4"
+  }
 }

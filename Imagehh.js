@@ -1,10 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import FastImage from "react-native-fast-image";
 
-export const Test = ({ text }) => {
+export const Imagehh = (props) => {
   return (
     <View>
-      <Text>{text}</Text>
+      <FastImage {...props} />
     </View>
   );
 };

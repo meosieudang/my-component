@@ -1,14 +1,31 @@
 {
   "name": "react-native-test-hihi",
-  "version": "1.0.12",
+  "version": "1.0.16",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "config:dev": "json -I -f package.json -e 'this.main=\"node_modules/expo/AppEntry.js\"'",
+    "config:npm": "json -I -f package.json -e 'this.main=\"lib/index.js\"'",
+    "lint": "tslint --project .",
+    "lint:fix": "./node_modules/.bin/tslint ./src/**/*.{ts,tsx} --fix",
+    "tsc": "node_modules/.bin/tsc --noEmit",
+    "start": "yarn config:dev && expo start",
+    "start:web": "yarn config:dev && expo start -w --dev",
+    "build": "rm -rf lib/ && node_modules/.bin/tsc && cp flow-typedefs/*.js.flow lib/",
+    "test": "TZ=Europe/Paris jest --no-watchman",
+    "test:watch": "TZ=Europe/Paris jest --watch",
+    "test:coverage": "TZ=Europe/Paris jest --coverage",
+    "prepublishOnly": "yarn lint && yarn build && yarn test && yarn config:npm",
+    "postpublish": "yarn config:dev",
+    "prettier": "./node_modules/.bin/prettier --write \"src/**/*.{ts,tsx}\""
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "lodash": "^4.17.20",
     "react-native-fast-image": "^8.3.4"
+  },
+  "devDependencies": {
+    "metro-react-native-babel-preset": "^0.64.0"
   }
 }
